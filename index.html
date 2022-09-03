@@ -13,7 +13,7 @@
 <body class="bg-light">
     <header>
         <section class="container">
-            <nav class="navbar bg-light border-bottom">
+            <nav class="navbar bg-light border-bottom py-4">
                 <div class="container-fluid">
                     <a class="navbar-brand "> <span
                             class="bg-primary rounded p-2 text-white"><strong>Daily</strong></span>
@@ -27,7 +27,7 @@
         </section>
     </header>
     <main>
-        <section class="container">
+        <section class="container py-3">
             <!-- buttons -->
             <div class="bg-light py-2">
                 <button onclick="loadNews('01')" class="btn btn-light mx-2 text-black-50">Home</button>
@@ -42,16 +42,17 @@
             </div>
             <!-- founded result bar -->
             <div class=" bg-white rounded py-2 my-3">
-                <h4 class="mx-3">3 items found in </h4>
+                <h4 class="mx-3"><span id="found-result">0</span> items found.</h4>
             </div>
             <!-- options -->
             <div class="my-5 d-flex justify-content-between">
                 <div class="d-flex">
                     <p class="mt-2 me-2"><strong>Sort by view:</strong></p>
-                    <input class="w-10" type="text">
+                    <p class="bg-white px-3 py-2 rounded text-black-50"> default <span class="text-white">ooo</span><i
+                            class="fa-sharp fa-solid fa-chevron-down"></i></p>
                 </div>
                 <div>
-                    <button class="btn btn-light mx-2 text-black-50 border border-primary">Todays pick</button>
+                    <button class=" btn btn-light mx-2 text-black-50 border border-primary">Todays pick</button>
                     <button class="btn btn-light mx-2 text-black-50 border border-primary">Trending</button>
                 </div>
             </div>

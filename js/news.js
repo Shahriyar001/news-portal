@@ -8,6 +8,7 @@ const loadNews = async (idnum) => {
 const displayNews = newses => {
     console.log(newses);
     const newsContainer = document.getElementById('news-container');
+    newsContainer.textContent = '';
     newses.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('row');
@@ -31,7 +32,7 @@ const displayNews = newses => {
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'no view'
+                                    <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'no'
             }</p>
                                 </div>
                                 <div>
@@ -45,6 +46,10 @@ const displayNews = newses => {
 
 
     })
+    console.log(newses.length);
+
+    const foundResult = document.getElementById('found-result');
+    foundResult.innerText = newses.length;
 }
 
-// loadNews('07')
+loadNews('01')
