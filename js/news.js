@@ -41,7 +41,7 @@ const displayNews = newses => {
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'no'
+                                    <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'no viewers found'
             }</p>
                                 </div>
                                 <div>
