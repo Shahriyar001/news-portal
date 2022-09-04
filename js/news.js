@@ -45,7 +45,7 @@ const displayNews = newses => {
             }</p>
                                 </div>
                                 <div>
-                                    <button onclick="loadNewsDetails('${news.category_id
+                                    <button onclick="loadNewsDetails('${news._id
             }')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsDetailmodal">
                 more...
             </button>
@@ -58,6 +58,7 @@ const displayNews = newses => {
         newsContainer.appendChild(newsDiv);
 
         console.log(newses[0]);
+        console.log(news._id)
 
 
 
@@ -85,8 +86,8 @@ const toggleSpinner = isloading => {
     }
 }
 
-const loadNewsDetails = async idno => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${idno}`;
+const loadNewsDetails = async news_id => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     const res = await fetch(url);
     const data = await res.json();
     displayNewsDetails(data.data);
@@ -97,8 +98,15 @@ const displayNewsDetails = news => {
     const newsTitle = document.getElementById('newsDetailmodalLabel');
     newsTitle.innerText = news[0].title;
     const newsDetail = document.getElementById('news-details');
-    newsDetail.innerText = news[1].details
-        ;
+    newsDetail.innerText = news[0].details;
+    const authorName = document.getElementById('athr-name');
+    authorName.innerText = news[0].author.name ? news[0].author.name : 'no name found';
+    const relaseInModal = document.getElementById('modal-relase');
+    relaseInModal.innerText = news[0].author.published_date ? news[0].author.published_date : 'no date found';
+    const viewInModal = document.getElementById('viewIn-Modal');
+    viewInModal.innerText = news[0].total_view ? news[0].total_view : 'no views';
+
+    ;
 
 }
 
