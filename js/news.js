@@ -1,4 +1,5 @@
 const loadNews = async (idnum,) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${idnum}`;
     try {
         const res = await fetch(url);
@@ -10,7 +11,7 @@ const loadNews = async (idnum,) => {
         console.log(error);
     }
 
-    toggleSpinner(true);
+
 }
 
 const displayNews = newses => {
