@@ -1,8 +1,16 @@
-const loadNews = async (idnum) => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${idnum}`
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNews(data.data);
+const loadNews = async (idnum,) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${idnum}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNews(data.data);
+
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+    toggleSpinner(true);
 }
 
 const displayNews = newses => {
@@ -36,20 +44,61 @@ const displayNews = newses => {
             }</p>
                                 </div>
                                 <div>
-                                    <button class="btn btn-white">more..</button>
+                                    <button onclick="loadNewsDetails('${news.category_id
+            }')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsDetailmodal">
+                more...
+            </button>
                                 </div>
                             </div>
                         </div>
 
         `;
+
         newsContainer.appendChild(newsDiv);
+
+        console.log(newses[0]);
+
 
 
     })
-    console.log(newses.length);
+    // stop toggle spiner 
+
+    toggleSpinner(false);
 
     const foundResult = document.getElementById('found-result');
     foundResult.innerText = newses.length;
+
 }
 
-loadNews('01')
+// function loadNews() {
+//     toggleSpinner(true);
+// }
+
+const toggleSpinner = isloading => {
+    const loaderSection = document.getElementById('loader');
+    if (isloading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
+
+const loadNewsDetails = async idno => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${idno}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsDetails(data.data);
+}
+
+const displayNewsDetails = news => {
+    console.log(news);
+    const newsTitle = document.getElementById('newsDetailmodalLabel');
+    newsTitle.innerText = news[0].title;
+    const newsDetail = document.getElementById('news-details');
+    newsDetail.innerText = news[1].details
+        ;
+
+}
+
+loadNews('08')

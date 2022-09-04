@@ -30,15 +30,20 @@
         <section class="container py-3">
             <!-- buttons -->
             <div class="bg-light py-2">
-                <button onclick="loadNews('01')" class="btn btn-light mx-2 text-black-50">Home</button>
-                <button onclick="loadNews('01')" class=" btn btn-light mx-2 text-black-50">Breaking News</button>
-                <button onclick="loadNews('02')" class="btn btn-light mx-2 text-black-50">Regular News</button>
-                <button onclick="loadNews('03')" class="btn btn-light mx-2 text-black-50">International News</button>
-                <button onclick="loadNews('04')" class="btn btn-light mx-2 text-black-50">Sports News</button>
-                <button onclick="loadNews('05')" class="btn btn-light mx-2 text-black-50">Entertanment</button>
-                <button onclick="loadNews('06')" class="btn btn-light mx-2 text-black-50">Culture</button>
-                <button onclick="loadNews('07')" class="btn btn-light mx-2 text-black-50">Arts</button>
-                <button onclick="loadNews('08')" class="btn btn-light mx-2 text-black-50">All News</button>
+                <button onclick="loadNews('08')" class="btn btn-light mx-2 text-black-50 btn-searches">Home</button>
+                <button onclick="loadNews('01')" class=" btn btn-light mx-2 text-black-50 btn-searches">Breaking
+                    News</button>
+                <button onclick="loadNews('02')" class="btn btn-light mx-2 text-black-50 btn-searches">Regular
+                    News</button>
+                <button onclick="loadNews('03')" class="btn btn-light mx-2 text-black-50 btn-searches">International
+                    News</button>
+                <button onclick="loadNews('04')" class="btn btn-light mx-2 text-black-50 btn-searches">Sports
+                    News</button>
+                <button onclick="loadNews('05')"
+                    class="btn btn-light mx-2 text-black-50 btn-searches">Entertanment</button>
+                <button onclick="loadNews('06')" class="btn btn-light mx-2 text-black-50 btn-searches">Culture</button>
+                <button onclick="loadNews('07')" class="btn btn-light mx-2 text-black-50 btn-searches">Arts</button>
+                <button onclick="loadNews('08')" class="btn btn-light mx-2 text-black-50 btn-searches">All News</button>
             </div>
             <!-- founded result bar -->
             <div class=" bg-white rounded py-2 my-3">
@@ -64,7 +69,15 @@
                 </div>
             </div>
         </section>
-
+        <!-- loader -->
+        <section id="loader" class="container d-none">
+            <div style="height: 400px;" class="d-flex justify-content-center border align-items-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+        <!-- modal contant -->
 
     </main>
     <script src="js/news.js"></script>
